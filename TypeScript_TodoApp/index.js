@@ -30,7 +30,7 @@ if (form) {
 function postTodo(tododata) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetch("http://localhost:3000/todo", {
+            const response = yield fetch("https://todo-app-wwun.onrender.com/todo", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -43,7 +43,7 @@ function postTodo(tododata) {
             const data = yield response.json();
             console.log(data);
             alert("Todo Added !");
-            window.location.assign("todolist.html");
+            window.location.href = "index.html";
         }
         catch (error) {
             console.log(error);

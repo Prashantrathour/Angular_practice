@@ -64,7 +64,7 @@ function openEditPopup(id: number) {
 
 async function removeTodo(id: IdType) {
   try {
-      const response = await fetch(`http://localhost:3000/todo/${id}`, {
+      const response = await fetch(`https://todo-app-wwun.onrender.com/todo/${id}`, {
           method: 'DELETE',
       });
 
@@ -80,7 +80,7 @@ async function removeTodo(id: IdType) {
 
 async function getTodo() {
   try {
-      const response = await fetch('http://localhost:3000/todo');
+      const response = await fetch('https://todo-app-wwun.onrender.com/todo');
 
       if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -97,7 +97,7 @@ async function getTodo() {
 
 async function updateTodo(tododata: Todo, id: number) {
   try {
-      const response = await fetch(`http://localhost:3000/todo/${id}`, {
+      const response = await fetch(`https://todo-app-wwun.onrender.com/todo/${id}`, {
           method: 'PATCH',
           headers: {
               'Content-Type': 'application/json',
