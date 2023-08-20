@@ -1,0 +1,44 @@
+{
+  "todo": [
+    {
+      "todo": "React",
+      "status": false,
+      "id": 6
+    },
+    {
+      "todo": "React",
+      "status": true,
+      "id": 7
+    },
+    {
+      "todo": "add",
+      "status": true,
+      "id": 8
+    },
+    {
+      "todo": "added",
+      "status": true,
+      "id": 9
+    },
+    {
+      "todo": "aa",
+      "status": true,
+      "id": 10
+    },
+    {
+      "todo": "sdf",
+      "status": true,
+      "id": 11
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
