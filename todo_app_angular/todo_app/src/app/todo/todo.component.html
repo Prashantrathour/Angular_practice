@@ -1,0 +1,45 @@
+<div class="min-h-screen flex flex-col justify-center bg-gray-100">
+  <header class="bg-white shadow ">
+    <div class="mx-auto  px-4 py-6 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+    </div>
+  </header>
+  <main class="flex-1 justify-center  ">
+    <div class="  py-6 sm:px-6 lg:px-8 mt-7 flex justify-between gap-10 mx-10 ">
+      <form id="todo-form" onsubmit="addTodo()" class="bg-white rounded-lg w-auto p-4 shadow-md flex ">
+        <div class="flex items-center mb-4 justify-center mt-7  ">
+          <input
+            
+            type="checkbox"
+            id="todo_checkbox"
+            class="mr-2 h-5 w-5 text-blue-500"
+          />
+          <div class="relative flex-1">
+            <input
+              type="text"
+              name="todo_text"
+              id="todo_text"
+              class="block py-2.5 px-20  text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-md appearance-none dark:text-white dark:border-gray-600 dark:focus: focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder="Add Todo"
+              required
+            />
+            <label
+              for="todo_text"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >Add Todo</label>
+          </div>
+          
+          <button
+            type="submit"
+            class="flex items-center w-24 justify-center  ml-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-0 text-white dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            <span class="mr-2 w-10">+</span> Add Todo
+          </button>
+        </div>
+      </form>
+      <div class="w-full border-2 border-blue-900">
+        <h2>Todo List</h2>
+      </div>
+    </div>
+  </main>
+</div>

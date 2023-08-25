@@ -1,0 +1,51 @@
+<div class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto py-8 px-4">
+      <div class="flex items-center justify-between border border-gray-200 rounded dark:border-gray-700 p-4 shadow-md">
+        <h5 class="text-gray-900 dark:text-gray-300 font-medium mb-2">Filter according to your choice</h5>
+        <div class="flex flex-wrap ">
+          <ng-container *ngFor="let letter of alphabet">
+            <input [id]="'radio-' + letter" type="radio" [value]="letter" name="bordered-radio" class="hidden focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-200 dark:focus:ring-offset-gray-800">
+            <label [for]="'radio-' + letter" class="w-8 h-8 bg-gray-100 border border-gray-300 flex items-center justify-center rounded-full text-gray-900 dark:text-gray-300 cursor-pointer mx-1 my-1 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white {{ selectedLetter === letter ? 'bg-blue-500 text-red-800 font-extrabold' : '' }}" (click)="selectLetter(letter)">
+              {{ letter }}
+            </label>
+          </ng-container>
+        </div>
+      </div>
+      <div  *ngIf="loading">
+            <h3>loading......</h3>
+      </div>
+      <div *ngIf="data" class="mt-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 ">
+          <!-- Loop through the data and display each item -->
+          <div *ngFor="let item of data" class="bg-white p-4 rounded-lg shadow-md ">
+            <img src={{item.strMealThumb}} alt="{{ item.strMeal }}" class="mx-auto mt-4  w-fit" />
+            <div class="h-40 ">
+            <h4 class="text-xl font-semibold  ">{{ item.strMeal }}</h4>
+            <p class="text-gray-600">Category: {{ item.strCategory }}</p>
+            <p class="text-gray-600 ">Area: {{ item.strArea }}</p>
+  </div>
+            <!-- Display description with "Show More" feature -->
+            <div class="  h-60">
+              <p class="max-w-sm" *ngIf="item.strInstructions.length <= 200">{{ item.strInstructions }}</p>
+              <p class="max-w-sm max-h-60 overflow-y-scroll" *ngIf="item.strInstructions.length > 200">
+                {{ item.strInstructions.substring(0, 200) }}
+                <span *ngIf="!showMore">...</span>
+                <span *ngIf="showMore">{{ item.strInstructions.substring(200) }}</span>
+                <button class="text-blue-900" (click)="toggleDescription()">Show {{ showMore ? 'Less' : 'More' }}</button>
+              </p>
+            </div>
+  
+            <a [href]="item.strYoutube" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg inline-block mt-4">Watch Recipe</a>
+          </div>
+        </div>
+      </div>
+  
+      <div *ngIf="!data" class="mt-8">
+        <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <h1 class="text-3xl font-semibold mb-4">Home Page</h1>
+          <p>Data not found</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

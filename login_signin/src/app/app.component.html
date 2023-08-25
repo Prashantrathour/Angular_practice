@@ -1,0 +1,13 @@
+
+
+<nav class="navbar">
+  <ul class="nav-list">
+    <li><a routerLink="" routerLinkActive="active">Home</a></li>
+    <li *ngIf="!login"><a routerLink="/login" routerLinkActive="active">login</a></li>
+    <button *ngIf="login" (click)="logout()">Logout</button>
+    <li><a routerLink="/signin" routerLinkActive="active">signin</a></li>
+  </ul>
+</nav>
+
+
+<router-outlet></router-outlet>

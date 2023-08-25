@@ -1,0 +1,21 @@
+def allocate_projects(employees, projects):
+    
+    assignments = []
+
+    employees.sort(key=lambda x: len(x["skills"]), reverse=True)
+
+
+    projects.sort(key=lambda x: len(x["required skills"]), reverse=True)
+
+ 
+    for project in projects:
+        for employee in employees:
+            if (
+                employee["current_project"] is None
+                and set(project["required skills"]).issubset(set(employee["skills"]))
+            ):
+                assignments.append({"employee": employee["name"], "project": project["name"]})
+                employee["current_project"] = project["name"]
+                break
+
+    return assignments
